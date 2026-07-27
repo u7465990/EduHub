@@ -1,0 +1,43 @@
+# Java
+*.class
+*.jar
+*.war
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Node
+node_modules/
+dist/
+.npm
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Environment
+.env
+*.env.local
+application-local.yml
+application-dev.yml
+
+# Flutter
+mobile-app/build/
+mobile-app/.dart_tool/
+mobile-app/.packages
+mobile-app/.pub/
+mobile-app/pubspec.lock
+
+# Docker
+docker-compose.override.yml
