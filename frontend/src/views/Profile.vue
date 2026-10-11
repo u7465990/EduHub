@@ -55,7 +55,7 @@
             </el-form-item>
           </el-form>
           <el-divider />
-          <template #header><span>修改密码</span></template>
+          <h3 class="section-title">修改密码</h3>
           <el-form :model="pwdForm" label-width="80px">
             <el-form-item label="旧密码">
               <el-input v-model="pwdForm.oldPassword" type="password" show-password />
@@ -157,4 +157,5 @@ async function changePwd() {
 .info-list { text-align: left; }
 .info-item { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; color: #606266; border-bottom: 1px solid #f5f5f5; }
 .info-item:last-child { border: none; }
+.section-title { margin: 0 0 16px; font-size: 16px; font-weight: 600; color: #303133; }
 </style>
