@@ -82,7 +82,9 @@ jobs:
   docker-build:
     needs: [backend-build]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # 需要仓库变量 ENABLE_DEPLOY=true 才执行（Settings → Secrets and variables → Actions → Variables）。
+    # 启用前请先配好 Secrets：DOCKER_USERNAME / DOCKER_PASSWORD（+ 部署需 DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY）
+    if: github.ref == 'refs/heads/master' && vars.ENABLE_DEPLOY == 'true'
 
     steps:
       - name: Checkout code
@@ -116,7 +118,9 @@ jobs:
   deploy:
     needs: [docker-build, frontend-build]
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    # 需要仓库变量 ENABLE_DEPLOY=true 才执行（Settings → Secrets and variables → Actions → Variables）。
+    # 启用前请先配好 Secrets：DOCKER_USERNAME / DOCKER_PASSWORD（+ 部署需 DEPLOY_HOST / DEPLOY_USER / DEPLOY_KEY）
+    if: github.ref == 'refs/heads/master' && vars.ENABLE_DEPLOY == 'true'
 
     steps:
       - name: Deploy via SSH
